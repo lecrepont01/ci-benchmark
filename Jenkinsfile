@@ -11,13 +11,5 @@ pipeline {
                 echo 'Goodbye, World!'
             }
         }
-        stage('Test') {
-            withChecks(name: 'some_other_check') {
-                steps {
-                    echo 'test!'
-                }
-            }
-        }
-
     }
 }
