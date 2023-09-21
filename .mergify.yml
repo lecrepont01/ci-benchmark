@@ -1,7 +1,14 @@
+---
+queue_rules:
+  - name: queue_jenkins
+    queue_conditions:
+      - check-success=jenkins_check
+    merge_conditions:
+      - label=not_set_wont_merge
+
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: queue_pull_request
     conditions:
-      - "#approved-reviews-by>=1"
+      - base=main
     actions:
-      merge:
-        method: merge
+      queue:
